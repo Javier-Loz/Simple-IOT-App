@@ -25,5 +25,21 @@ Instanciar la base de datos ```db```
 
 ```
 db = SQLAlchemy(app)
+```
+Declarar el tabla como un objetio de tipo ```db.Model```
 
 ```
+class Medicion(db.Model):
+    idMedicion = db.Column('idMedicion',db.Integer,primary_key=True)
+    tsMedicion = db.Column('tsMedicion', db.DateTime(timezone=True), default=datetime.utcnow)
+    pict = db.Column('pict',db.Text,nullable=False)
+
+    def __init__(self,pict):
+        self.pict = pict   
+```
+Cada columna se declara como un atributo de la siguiente manera:
+
+```
+columnName = db.Column('columnName',db.[dataType](https://www.ibm.com/docs/es/iis/11.5?topic=stage-sql-data-types))
+```
+
