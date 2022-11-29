@@ -1,4 +1,4 @@
 # TE2004B
 Sistema contra robo de  vehículos
 
-<center>![Diagrama](imgs/savi_bloques.png)<center>
+<img src="imgs/savi_bloques" alt="Diagrama de Bloques" class="center">
