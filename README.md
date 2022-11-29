@@ -32,4 +32,9 @@ con las personas registradas, procese la imagen generada y determine si la perso
 
 
 ## Funcionamiento 
+Dentro de la Raspberry Pi se alojará la base de datos con las imágenes de las personas registradas, las imágenes generadas por 
+el ESP-32 y el estatus de identificación de la persona. 
+El ESp-32, en su versión "-cam", tomará la fotografía en formato ".png" y hará una solicitud para almacenar la imagen debtro de la base de datos, 
+además hará una pétición del estatus de identificación de la imagen y controlará el actuador.
+
 
