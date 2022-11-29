@@ -16,4 +16,20 @@ celulares de las personas autorizadas. En el mensaje se deberá de incluir la ub
 vehículo así como la foto de quien está conduciendo el coche. El sistema deberá de tener una
 opción de Valet parking para desactivar el sistema cuando se deja en un estacionamiento.
 
+## Solución Propuesta
+El diseño propuesto funcionará a partir de dos componentes principales, un microcontrolador
+que tome las fotografías de la persona al interior del vehículo con conexión a internet y un dispositivo que aloje la base de datos
+con las personas registradas, procese la imagen generada y determine si la persona tiene permitido manejar el  vehículo. 
+
+### Componentes
+- Microcontrolador: ESP-32
+- Cámara: OV2640
+- Host: Raspberry Pi 4 
+
+### Diagrama de bloques de la solución propuesta
+
 <img src="imgs/savi_bloques.png" alt="Diagrama de Bloques">
+
+
+## Funcionamiento 
+
