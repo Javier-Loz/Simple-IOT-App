@@ -26,7 +26,7 @@ Instanciar la base de datos ```db```
 ```
 db = SQLAlchemy(app)
 ```
-Declarar el tabla como un objetio de tipo ```db.Model```
+Declarar el tabla de almacenamiento como un objetio de tipo [Model](https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/)
 
 ```
 class Medicion(db.Model):
@@ -38,9 +38,9 @@ class Medicion(db.Model):
         self.pict = pict   
 ```
 Cada columna se declara como un atributo de la siguiente manera:
-Se declaran según los [tipos de datos](https://www.ibm.com/docs/es/iis/11.5?topic=stage-sql-data-types)) en SQL
+Se declaran según los [tipos de datos](https://www.ibm.com/docs/es/iis/11.5?topic=stage-sql-data-types) en SQL
 
 ```
-columnName = db.Column('columnName',db.[dataType](https://www.ibm.com/docs/es/iis/11.5?topic=stage-sql-data-types))
+columnName = db.Column('columnName',db.dataType)
 ```
 
