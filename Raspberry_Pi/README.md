@@ -53,6 +53,7 @@ Utilizar el comando db.create_all() dentro de este archivo genera un error, por 
 >>> from app import db, ModelName
 >>> db.create_all()
 ```
+### Nota
 No se pueden sobrescribir las bases de datos, si se hace algún cambio se tiene que eliminar la anterior y crearla de nuevo:
 ```
 (source)pi@pi:~/flaskProyectDirectory$ flask shell
