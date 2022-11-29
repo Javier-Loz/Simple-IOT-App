@@ -38,6 +38,7 @@ class Medicion(db.Model):
         self.pict = pict   
 ```
 Cada columna se declara como un atributo de la siguiente manera:
+Se declaran según los [tipos de datos](https://www.ibm.com/docs/es/iis/11.5?topic=stage-sql-data-types)) en SQL
 
 ```
 columnName = db.Column('columnName',db.[dataType](https://www.ibm.com/docs/es/iis/11.5?topic=stage-sql-data-types))
