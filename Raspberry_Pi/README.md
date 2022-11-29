@@ -66,6 +66,7 @@ No se pueden sobrescribir las bases de datos, si se hace algún cambio se tiene 
 Los POST se hacen mediante la herramienta [requests](https://requests.readthedocs.io/en/latest/user/quickstart/#more-complicated-post-requests) de python, la cuál cuenta con métodos para subir archivos.
 
 ```
+@app.route("/newData", methods=["POST"])
 def push_data():
     
     file = request.files['file']
