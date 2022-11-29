@@ -63,7 +63,8 @@ No se pueden sobrescribir las bases de datos, si se hace algún cambio se tiene 
 ```
 
 ## Métodos route para la Api
-Los POST se hacen mediante la herramienta [requests](https://requests.readthedocs.io/en/latest/user/quickstart/#more-complicated-post-requests) de python, la cuál cuenta con métodos para subir archivos.
+- POST
+Los POST y GET se hacen mediante la herramienta [requests](https://requests.readthedocs.io/en/latest/user/quickstart/#more-complicated-post-requests) de python, la cuál cuenta con métodos para subir archivos.
 
 ```
 @app.route("/newData", methods=["POST"])
@@ -81,5 +82,13 @@ files = {'file': open('image.png', 'rb')}
 
 r = requests.post(url,files=files)
 ```
+- GET
+```
+url = ' http://siteUrl/Medicion/getData'
 
+r = requests.get(url)
+# guardar los datos en un archivo .png
+with open("response.png","wb") as file:
+	file.write(r.content)
+```
 
