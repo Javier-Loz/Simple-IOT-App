@@ -62,3 +62,23 @@ No se pueden sobrescribir las bases de datos, si se hace algún cambio se tiene 
 >>> db.create_all()
 ```
 
+## Hacer POST de archivos a la DB
+Los POST se hacen mediante la herramienta [requests](https://requests.readthedocs.io/en/latest/user/quickstart/#more-complicated-post-requests) de python, la cuál cuenta con métodos para subir archivos.
+
+```
+def push_data():
+    
+    file = request.files['file']
+    # se crea un objeto Medicion para la tabla con el archivo a subir
+    db.session.add(Medicion(file.read()))
+    db.session.commit()
+```
+- Referencia al método POST para archivos
+```
+url = ' http://siteUrl/Medicion/newData'
+files = {'file': open('image.png', 'rb')}
+
+r = requests.post(url,files=files)
+```
+
+
