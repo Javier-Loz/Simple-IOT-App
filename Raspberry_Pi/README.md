@@ -4,7 +4,7 @@
 
 ## Creación de Base de Datos con FLASK
 
-Se requiere de dos tablas para lamacenar información, la tabla "Mediciones" y la tabla "Respuestas". 
+Se requiere de dos tablas para lamacenar información, la tabla "Mediciones" y la tabla "Results". 
 Ambas se diseñaron usando la herramienta [Flask](https://flask.palletsprojects.com/en/2.2.x/)
 
 Instanciar la aplicaión ```app```
@@ -91,4 +91,20 @@ r = requests.get(url)
 with open("response.png","wb") as file:
 	file.write(r.content)
 ```
-
+## Programa principal 
+Cada 15 segundos se obtiene, de la base de datos, la fotografía a analizar; Se ejecuta el reconocimiento facial, se genera una respuesta y se hace POST de 
+esa respuesta a la tabla Results. 
+- Se usó [dlib y opencv-python](https://gist.github.com/ageitgey/1ac8dbe8572f3f533df6269dab35df65) para hacer el reconocimiento facial.
+Dentro de ```main.py```:
+-Obtener la imagen
+```
+def getData(URL,filename):
+```
+-Subir el resultado del reconocimiento facial
+```
+def postResponse(response,URL):
+```
+-Reconocimiento facial
+```
+def faceRecon(filename):
+```
