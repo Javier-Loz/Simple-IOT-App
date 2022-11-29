@@ -16,4 +16,4 @@ celulares de las personas autorizadas. En el mensaje se deberá de incluir la ub
 vehículo así como la foto de quien está conduciendo el coche. El sistema deberá de tener una
 opción de Valet parking para desactivar el sistema cuando se deja en un estacionamiento.
 
-<center><img src="imgs/savi_bloques.png" alt="Diagrama de Bloques"><center>
+<center><img src="imgs/savi_bloques.png" alt="Diagrama de Bloques">
