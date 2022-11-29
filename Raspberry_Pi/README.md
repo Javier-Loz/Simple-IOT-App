@@ -44,4 +44,13 @@ Cada columna se declara como un atributo de la siguiente manera:
 ```
 columnName = db.Column('columnName',db.dataType)
 ```
+### Importante 
+Utilizar el comando db.create_all() dentro de este archivo genera un error, por lo que las bases de datos se crean dentro de la terminal de flask ```flask shell```
+- Dentro del ambiente virtual creado con ```virtualenv "nombre_del_ambiente"```
+```
+(source)pi@pi:~/flaskProyectDirectory$ export FLASK_APP=app 
+(source)pi@pi:~/flaskProyectDirectory$ flask shell
+>>> from app import db, ModelName
+>>> db.create_all()
+```
 
