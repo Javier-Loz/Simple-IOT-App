@@ -1,7 +1,15 @@
 # Implementación en Raspberry Pi
 
-## Instalación de Dependencias
-
+## Dependencias
+```
+from fileinput import filename
+import sys
+import cv2 
+import numpy as np 
+import requests
+import face_recognition as fr
+import time
+```
 ## Creación de Base de Datos con FLASK
 
 Se requiere de dos tablas para lamacenar información, la tabla "Mediciones" y la tabla "Results". 
