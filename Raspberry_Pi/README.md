@@ -34,7 +34,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 ```
 
-#### Instance a table using flaskj DB [Model](https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/)
+#### Instance a table using flask DB [Model](https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/)
 As many tables as required can be created and they will be stored on the file prevously defined
 Note: check the data type that suits best the type of data to be published
 ```
@@ -50,19 +50,21 @@ The table can have as many columns as desired, simply follow the sintaxis using 
 ```
 columnName = db.Column('columnName',db.dataType)
 ```
-### Importante 
-Utilizar el comando db.create_all() dentro de este archivo genera un error, por lo que las bases de datos se crean dentro de la terminal de flask ```flask shell```
-- Dentro del ambiente virtual creado con ```virtualenv "nombre_del_ambiente"```
+#### Important 
+Prevously, the tables could be created direcly on the flask app when ever the code is executed. 
+I stummbled accorss various errors which didn't let me use the command ```db.create_all()``` to create the tables. 
+The method that worked for me was to manually create each table inside the ```flask shell```
 ```
-(source)pi@pi:~/flaskProyectDirectory$ export FLASK_APP=app 
-(source)pi@pi:~/flaskProyectDirectory$ flask shell
+$ export FLASK_APP=app 
+$ flask shell
 >>> from app import db, ModelName
 >>> db.create_all()
 ```
-### Nota
-No se pueden sobrescribir las bases de datos, si se hace algún cambio se tiene que eliminar la anterior y crearla de nuevo:
+### Note
+Data Bases cannot be overwritten with this mehtod, instead they should be erased and created again.
+
 ```
-(source)pi@pi:~/flaskProyectDirectory$ flask shell
+$ flask shell
 >>> from app import db, ModelName
 >>> db.drop_all()
 >>> db.create_all()
