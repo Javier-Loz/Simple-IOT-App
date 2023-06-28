@@ -45,13 +45,13 @@ class SensorRead(db.Model):
     def __init__(self,SensorRead):
         self.SensorRead = SensorRead
 ```
-The table can have as many columns as desired, simply follow the sintaxis using [sql_data-Types](https://www.ibm.com/docs/es/iis/11.5?topic=stage-sql-data-types) 
+The table can have as many columns as desired, simply follow the sintaxis using [sql-data-types](https://www.ibm.com/docs/es/iis/11.5?topic=stage-sql-data-types) 
 
 ```
 columnName = db.Column('columnName',db.dataType)
 ```
 #### Important 
-Prevously, the tables could be created direcly on the flask app when ever the code is executed. 
+Prevously, the tables could be created direcly on the flask app when ever the code was executed. 
 I stummbled accorss various errors which didn't let me use the command ```db.create_all()``` to create the tables. 
 The method that worked for me was to manually create each table inside the ```flask shell```
 ```
