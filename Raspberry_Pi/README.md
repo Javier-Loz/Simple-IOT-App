@@ -1,27 +1,26 @@
-# Implementación en Raspberry Pi
+# Data Base and API implementation 
 
 ## Dependencias
 ```
-from fileinput import filename
-import sys
-import cv2 
-import numpy as np 
-import requests
-import face_recognition as fr
-import time
+import os
+from datetime import datetime
+from flask import Flask,jsonify,request,Response
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.sql import func
 ```
-## Creación de Base de Datos con FLASK
+## Creating a Data Base using Flask
 
-Se requiere de dos tablas para lamacenar información, la tabla "Mediciones" y la tabla "Results". 
-Ambas se diseñaron usando la herramienta [Flask](https://flask.palletsprojects.com/en/2.2.x/)
+In order to create the desired Data Base and being able to write and read information form it we will use the tools provided by Flask
 
-Instanciar la aplicaión ```app```
+### 1. Instance the Flask Application
 
 ```
 app = Flask(__name__)
 ```
 
-Declarar el directorio en el que se almacenará la base de datos ```database.db```
+### 2. Write the Data Base
+
+#### Define the file in which the DB will be stored  ```database.db```
 
 ```
 app.config['SQLALCHEMY_DATABASE_URI'] =\
@@ -29,25 +28,24 @@ app.config['SQLALCHEMY_DATABASE_URI'] =\
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 ```
 
-Instanciar la base de datos ```db```
+#### Instance the DB ```db```
 
 ```
 db = SQLAlchemy(app)
 ```
-Declarar el tabla de almacenamiento como un objetio de tipo [Model](https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/)
 
+#### Instance a table using flaskj DB [Model](https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/)
+As many tables as required can be created and they will be stored on the file prevously defined
+Note: check the data type that suits best the type of data to be published
 ```
-class Medicion(db.Model):
-    idMedicion = db.Column('idMedicion',db.Integer,primary_key=True)
-    tsMedicion = db.Column('tsMedicion', db.DateTime(timezone=True), default=datetime.utcnow)
-    pict = db.Column('pict',db.Text,nullable=False)
-
-    def __init__(self,pict):
-        self.pict = pict   
+class SensorRead(db.Model):
+    SensorRead_id = db.Column('SensorRead_id',db.Integer,primary_key=True)
+    SensorRead_ts = db.Column('SensorRead_ts', db.DateTime(timezone=True), default=datetime.utcnow)
+    SensorRead_data  = db.Column('SensorRead_data',db.Float,nullable=False)
+    def __init__(self,SensorRead):
+        self.SensorRead = SensorRead
 ```
-Cada columna se declara como un atributo de la siguiente manera:
-
-- Se declaran según los [tipos de datos](https://www.ibm.com/docs/es/iis/11.5?topic=stage-sql-data-types) en SQL
+The table can have as many columns as desired, simply follow the sintaxis using [sql_data-Types](https://www.ibm.com/docs/es/iis/11.5?topic=stage-sql-data-types) 
 
 ```
 columnName = db.Column('columnName',db.dataType)
